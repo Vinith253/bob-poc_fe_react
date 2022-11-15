@@ -1,18 +1,18 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
-import CustomTextInput from "../../components/commonComponent/customTextInput/CustomTextInput";
+import { Box, Grid, Typography } from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
+import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
 
 export default function PrimaryDetailScreen() {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
 
   const submitButtonAction = () => {
-    navigate("/secondary"); //"/banklist" , "verification"
+    navigate('/secondary'); //"/banklist" , "verification"
   };
 
   return (
@@ -27,27 +27,27 @@ export default function PrimaryDetailScreen() {
           </Typography>
 
           <Box>
-            <CustomTextInput placeholder={"First Name"} />
+            <CustomTextInput placeholder={'First Name'} />
           </Box>
 
           <Box
             sx={{
-              margin: "20px 0",
+              margin: '20px 0',
             }}
           >
-            <CustomTextInput placeholder={"Last Name"} />
+            <CustomTextInput placeholder={'Last Name'} />
           </Box>
         </Box>
 
         <Box
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
+            alignItems: 'center',
+            justifyContent: 'center',
             bottom: 0,
           }}
         >
           <CustomButton
-            title={"Continue"}
+            title={'Continue'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={submitButtonAction}

@@ -1,16 +1,16 @@
-import { Button, IconButton, Stack, Typography } from "@mui/material";
-import logo from "../../assets/images/logo.svg";
-import arrow from "../../assets/icons/arrow.svg";
-import profile from "../../assets/images/profile.svg";
-import card1 from "../../assets/images/card1.png";
-import card2 from "../../assets/images/card2.png";
-import card3 from "../../assets/images/card3.svg";
-import card4 from "../../assets/images/card4.svg";
-import card5 from "../../assets/images/card5.svg";
-import benefits from "../../assets/icons/benefitsIcon.svg";
-import cupIcon from "../../assets/icons/cupIcon.svg";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import "../cardListScreen/cardStyle.scss";
+import { Button, IconButton, Stack, Typography } from '@mui/material';
+import logo from '../../assets/images/logo.svg';
+import arrow from '../../assets/icons/arrow.svg';
+import profile from '../../assets/images/profile.svg';
+import card1 from '../../assets/images/card1.png';
+import card2 from '../../assets/images/card2.png';
+import card3 from '../../assets/images/card3.svg';
+import card4 from '../../assets/images/card4.svg';
+import card5 from '../../assets/images/card5.svg';
+import benefits from '../../assets/icons/benefitsIcon.svg';
+import cupIcon from '../../assets/icons/cupIcon.svg';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import '../cardListScreen/cardStyle.scss';
 export interface cardInterface {
   title: string;
   cardImage: string;
@@ -65,7 +65,7 @@ export const CardList = () => {
                 >
                   {items.title}
                 </Typography>
-                <Stack sx={{ paddingTop: "10px" }}>
+                <Stack sx={{ paddingTop: '10px' }}>
                   <img
                     src={items.cardImage}
                     alt="card"
@@ -284,11 +284,11 @@ export const CardList = () => {
 
 const existingCardData = [
   {
-    title: "Existing Card Limit",
+    title: 'Existing Card Limit',
     cardImage: card1,
   },
   {
-    title: "Your BoB Card Limit",
+    title: 'Your BoB Card Limit',
     cardImage: card2,
   },
 ];
@@ -297,40 +297,40 @@ const cardDetails = [
   {
     image: card3,
     benefitsIcon: benefits,
-    Benefits: "Benefits",
+    Benefits: 'Benefits',
     benefitsContent:
-      "15 Reward Points for every 100 spent on travel,dining,online & international transactions",
+      '15 Reward Points for every 100 spent on travel,dining,online & international transactions',
     cupIcon: cupIcon,
-    distinctiveBenefits: "Distinctive Benefits",
+    distinctiveBenefits: 'Distinctive Benefits',
     distinctiveBenefitsContent:
-      "Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership",
-    applyBtn: "Apply",
-    knowMoreBtn: "Know More",
+      'Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership',
+    applyBtn: 'Apply',
+    knowMoreBtn: 'Know More',
   },
   {
     image: card4,
     benefitsIcon: benefits,
-    Benefits: "Benefits",
+    Benefits: 'Benefits',
     benefitsContent:
-      "15 Reward Points for every 100 spent on travel,dining,online & international transactions",
+      '15 Reward Points for every 100 spent on travel,dining,online & international transactions',
     cupIcon: cupIcon,
-    distinctiveBenefits: "Distinctive Benefits",
+    distinctiveBenefits: 'Distinctive Benefits',
     distinctiveBenefitsContent:
-      "Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership",
-    applyBtn: "Apply",
-    knowMoreBtn: "Know More",
+      'Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership',
+    applyBtn: 'Apply',
+    knowMoreBtn: 'Know More',
   },
   {
     image: card5,
     benefitsIcon: benefits,
-    Benefits: "Benefits",
+    Benefits: 'Benefits',
     benefitsContent:
-      "15 Reward Points for every 100 spent on travel,dining,online & international transactions",
+      '15 Reward Points for every 100 spent on travel,dining,online & international transactions',
     cupIcon: cupIcon,
-    distinctiveBenefits: "Distinctive Benefits",
+    distinctiveBenefits: 'Distinctive Benefits',
     distinctiveBenefitsContent:
-      "Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership",
-    applyBtn: "Apply",
-    knowMoreBtn: "Know More",
+      'Welcome gift worth 15000 complimentary 6-months FITPASS PRO Membership',
+    applyBtn: 'Apply',
+    knowMoreBtn: 'Know More',
   },
 ];
