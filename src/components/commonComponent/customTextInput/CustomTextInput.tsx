@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, TextField, Typography } from '@mui/material';
 
 const CustomTextInput = (props: any) => {
+ 
   return (
     <Box>
       {props.title && (
@@ -25,6 +26,7 @@ const CustomTextInput = (props: any) => {
         placeholder={props.placeholder}
         variant="outlined"
         size="medium"
+        onChange={(e)=>props.handleChange(e.target.value,props.keyValue)}
       >
         {props.placeholder}
       </TextField>
