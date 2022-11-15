@@ -13,23 +13,23 @@ import Radio from "@mui/material/Radio";
 const dummyBankList = [
   {
     id: 1,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: AxisBankImage,
   },
-  { id: 2, acc_no: "123456789012", src: BOBImage },
+  { id: 2, acc_no: '123456789012', src: BOBImage },
   {
     id: 3,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: RBLImage,
   },
   {
     id: 4,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: YesBankImage,
   },
   {
     id: 4,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: YesBankImage,
   },
 ];
@@ -38,7 +38,7 @@ export default function BankListScreen() {
   const navigate = useNavigate();
 
   const buttonClickAction = () => {
-    navigate("/bankaccountdetail");
+    navigate('/bankaccountdetail');
   };
   
   // const handleChange = (index:any) => {
@@ -50,10 +50,10 @@ export default function BankListScreen() {
         <Box>
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
             <Typography sx={CommonStyle.authLayoutTitleText}>
@@ -77,41 +77,41 @@ export default function BankListScreen() {
                   <Grid item xs={2} sm={4} md={12} key={index}>
                     <Box
                       sx={{
-                        borderWidth: "1px",
-                        padding: "5px",
-                        border: "1px solid rgba(187, 188, 188, 0.5)",
-                        background: " #FFFFFF",
-                        margin: "5px",
-                        width: "100%",
+                        borderWidth: '1px',
+                        padding: '5px',
+                        border: '1px solid rgba(187, 188, 188, 0.5)',
+                        background: ' #FFFFFF',
+                        margin: '5px',
+                        width: '100%',
                       }}
                     >
                       <Box
                         sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          margin: "0 16px",
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          margin: '0 16px',
                         }}
                       >
                         <Box>
-                          {" "}
+                          {' '}
                           <img src={item.src} />
                         </Box>
                         <Box>
                           <Typography
                             sx={{
-                              fontSize: "14px",
-                              fontWeight: "400",
-                              color: " rgba(88, 88, 92, 0.5)",
+                              fontSize: '14px',
+                              fontWeight: '400',
+                              color: ' rgba(88, 88, 92, 0.5)',
                             }}
                           >
                             Account Number
                           </Typography>
                           <Typography
                             sx={{
-                              fontSize: "16px",
-                              fontWeight: "500",
-                              color: "#58585C",
+                              fontSize: '16px',
+                              fontWeight: '500',
+                              color: '#58585C',
                             }}
                           >
                             {item.acc_no}
@@ -135,14 +135,14 @@ export default function BankListScreen() {
         </Box>
         <Box
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "success.light",
-            marginTop: "30px",
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'success.light',
+            marginTop: '30px',
           }}
         >
           <CustomButton
-            title={"Continue"}
+            title={'Continue'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={buttonClickAction}

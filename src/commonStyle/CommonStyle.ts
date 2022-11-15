@@ -1,4 +1,4 @@
-import { CommonColor } from "./CommonColor";
+import { CommonColor } from './CommonColor';
 
 export const CommonStyle = {
   authLayoutTitleText: {

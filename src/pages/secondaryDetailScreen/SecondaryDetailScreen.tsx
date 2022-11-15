@@ -29,13 +29,13 @@ export default function SecondaryDetailScreen() {
   };
 
   const submitButtonAction = () => {
-    navigate("/otpverification");
+    navigate('/otpverification');
   };
 
   const gobackAction = () => {
-    navigate("/");
+    navigate(-1);
   };
-
+  
   let obj = {
     mobileNum: "",
     panNum: "",
@@ -58,8 +58,8 @@ export default function SecondaryDetailScreen() {
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
-        <Box style={{ backgroundColor: "success.light" }}>
-          <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <Box style={{ backgroundColor: 'success.light' }}>
+          <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Typography sx={CommonStyle.authLayoutTitleText}>
               USER DETAILS
             </Typography>
@@ -79,7 +79,7 @@ export default function SecondaryDetailScreen() {
           </Box>
           <Box
             sx={{
-              margin: "20px 0",
+              margin: '20px 0',
             }}
           >
             <CustomTextInput
@@ -90,7 +90,7 @@ export default function SecondaryDetailScreen() {
           </Box>
           <Box
             sx={{
-              margin: "20px 0",
+              margin: '20px 0',
             }}
           >
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -110,8 +110,8 @@ export default function SecondaryDetailScreen() {
         </Box>
         <Box
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Box sx={{ marginBottom: "15px", marginTop: "20px" }}>
@@ -136,7 +136,7 @@ export default function SecondaryDetailScreen() {
               />
               <Typography
                 sx={CommonStyle.termsAndCondition}
-                style={{ paddingRight: "70px" }}
+                style={{ paddingRight: '70px' }}
               >
                 I accept the{" "}
                 <Link
@@ -161,13 +161,13 @@ export default function SecondaryDetailScreen() {
                   target={"_blank"}
                 >
                   Privacy
-                </Link>{" "}
+                </Link>{' '}
                 Notice.
               </Typography>
             </Box>
           </Box>
           <CustomButton
-            title={"Get OTP"}
+            title={'Get OTP'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             disabled={getOTPbtn}

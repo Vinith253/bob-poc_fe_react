@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 // import logo from "./logo.svg";
-import "./App.scss";
-import { Route, Routes } from "react-router-dom";
-import AuthLayout from "./components/layout/authLayout/AuthLayout";
-import PrimaryDetailScreen from "./pages/primaryDetailScreen/PrimaryDetailScreen";
-import SecondaryDetailScreen from "./pages/secondaryDetailScreen/SecondaryDetailScreen";
-import VerificationScreen from "./pages/verificationScreen/VerificationScreen";
-import BankListScreen from "./pages/bankList/BankListScreen";
-import BankAccountDetailScreen from "./pages/bankAccountDetailScreen/BankAccountDetailScreen";
-import LandingScreen from "./pages/landingScreen/LandingScreen";
-import OtpVerificationScreen from "./pages/otpVerificationScreen/OTPVerificationScreen";
-import { CardList } from "./pages/cardListScreen/CardListScreen";
+import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+import AuthLayout from './components/layout/authLayout/AuthLayout';
+import PrimaryDetailScreen from './pages/primaryDetailScreen/PrimaryDetailScreen';
+import SecondaryDetailScreen from './pages/secondaryDetailScreen/SecondaryDetailScreen';
+import VerificationScreen from './pages/verificationScreen/VerificationScreen';
+import BankListScreen from './pages/bankList/BankListScreen';
+import BankAccountDetailScreen from './pages/bankAccountDetailScreen/BankAccountDetailScreen';
+import LandingScreen from './pages/landingScreen/LandingScreen';
+import OtpVerificationScreen from './pages/otpVerificationScreen/OTPVerificationScreen';
+import { CardList } from './pages/cardListScreen/CardListScreen';
 
 function App() {
   return (
