@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +12,7 @@ export default function PrimaryDetailScreen() {
   const [lastName, setLastName] = useState<string>('');
 
   const submitButtonAction = () => {
-    navigate('/verification'); //"/banklist" , "verification"
+    navigate('/secondary'); //"/banklist" , "verification"
   };
 
   return (

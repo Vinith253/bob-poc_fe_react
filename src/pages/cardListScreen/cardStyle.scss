@@ -1,0 +1,119 @@
+.container {
+  padding: 20px 30px;
+  .headerContainer {
+    display: "flex";
+    flex-direction: row;
+    // align-items: center;
+    // justify-content: space-between;
+    padding-bottom: 20px;
+    // .login {
+    //   display: "flex";
+    //   flex-direction: row;
+    //   align-items: center;
+    //   .userImage {
+    //     margin-right: 5px;
+    //   }
+    //   .userName {
+    //     font-weight: 400;
+    //     font-size: 14px;
+    //   }
+    //   .arrow {
+    //     padding: 0 2px;
+    //   }
+    // }
+  }
+  .applySmartCard {
+    padding: 20px 40px;
+    .applySmartCardTitle {
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 96px;
+      padding-bottom: 10px;
+    }
+    .applySmartCardContent {
+      font-weight: 200;
+      font-size: 20px;
+      line-height: 32px;
+      width: 55%;
+    }
+  }
+  .listContainer {
+    padding: 50px 80px 0 80px;
+    .existingCardList {
+      display: "flex";
+      flex-direction: row;
+      align-items: center;
+      .existingSingleCard {
+        width: 39%;
+        .existingSingleCardTitle {
+          font-weight: 200;
+          font-size: 20px;
+        }
+        .existingSingleCardImage {
+          padding-top: 10px;
+        }
+      }
+    }
+    .recommendedCardContainer {
+      .recommendedCard {
+        font-weight: 700;
+        font-size: 20px;
+        padding: 25px 0 15px 0;
+      }
+      .recommendedCardBorder {
+        opacity: 0.5;
+      }
+    }
+    .cardListingContainer {
+      display: "flex";
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .cardListing {
+        padding: 23px 0;
+        width: 30%;
+        .cardListingImage {
+          padding-bottom: 20px;
+        }
+        .cardListingTitleHeader {
+          padding: 10px 0;
+          .cardListingIcon {
+            display: "flex";
+            flex-direction: row;
+            align-items: center;
+            img{
+              margin-right: 10px;
+            }
+            .cardListingTitle{
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+          .cardListingDetail{
+            font-weight: 200;
+            font-size: 14px;
+            line-height: 20px;
+            padding-top: 7px;
+            letter-spacing: 0.2px;
+          }
+        }
+        .buttonContainer{
+          display: "flex";
+          flex-direction: row;
+          justify-content: space-between;
+          padding-top: 15px;
+          .buttonCard{
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 16.1px;
+            border-radius: 10px;
+            text-transform: capitalize;
+            width: 46%;
+          }
+        }
+      }
+    }
+  }
+}

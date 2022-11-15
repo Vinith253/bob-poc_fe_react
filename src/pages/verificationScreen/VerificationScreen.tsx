@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { CommonColor } from '../../commonStyle/CommonColor';
@@ -9,7 +8,7 @@ export default function VerificationScreen() {
   const navigate = useNavigate();
 
   const submitButtonAction = () => {
-    navigate('/bankaccountdetail'); //banklist
+    navigate('/landingscreen'); //banklist
   };
 
   return (
