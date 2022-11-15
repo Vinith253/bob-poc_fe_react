@@ -14,7 +14,19 @@ export default function PrimaryDetailScreen() {
   const submitButtonAction = () => {
     navigate("/secondary"); //"/banklist" , "verification"
   };
+ 
+  let obj = {
+    FirstName: "",
+    LastName: "",
+  };
+  const [userData, setUserData] = useState(obj);
 
+  const getUserValue = (e: any, value: string) => {
+    setUserData((prev) => ({ ...prev, [value]: e }));
+  };
+let continueBtn =true;
+
+  continueBtn =((userData.FirstName !=='' && userData.LastName !== '') ? false : true)
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
@@ -27,7 +39,8 @@ export default function PrimaryDetailScreen() {
           </Typography>
 
           <Box>
-            <CustomTextInput placeholder={"First Name"} />
+            <CustomTextInput placeholder={"First Name"}   handleChange={getUserValue}
+              keyValue={"FirstName"}/>
           </Box>
 
           <Box
@@ -35,7 +48,9 @@ export default function PrimaryDetailScreen() {
               margin: "20px 0",
             }}
           >
-            <CustomTextInput placeholder={"Last Name"} />
+            <CustomTextInput placeholder={"Last Name"} handleChange={getUserValue} keyValue={"LastName"}
+              
+              />
           </Box>
         </Box>
 
@@ -51,7 +66,7 @@ export default function PrimaryDetailScreen() {
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={submitButtonAction}
-            disabled={false}
+            disabled={continueBtn}
           />
         </Box>
       </Box>
