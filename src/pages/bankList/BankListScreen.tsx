@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
-import CustomTextInput from "../../components/commonComponent/customTextInput/CustomTextInput";
-import AxisBankImage from "../../assets/images/axis_bank_image.svg";
-import BOBImage from "../../assets/images/yes_bank_image.svg";
-import RBLImage from "../../assets/images/rbl_bank_image.svg";
-import YesBankImage from "../../assets/images/rbl_bank_image.svg";
-import Radio from "@mui/material/Radio";
+import React, { useState } from 'react';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
+import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
+import AxisBankImage from '../../assets/images/axis_bank_image.svg';
+import BOBImage from '../../assets/images/yes_bank_image.svg';
+import RBLImage from '../../assets/images/rbl_bank_image.svg';
+import YesBankImage from '../../assets/images/rbl_bank_image.svg';
+import Radio from '@mui/material/Radio';
 const dummyBankList = [
   {
     id: 1,
@@ -38,11 +38,14 @@ export default function BankListScreen() {
   const navigate = useNavigate();
 
   const buttonClickAction = () => {
-    navigate('/bankaccountdetail');
+    navigate('/bankaccountdetail'); //todo otp => loading (fetching acc detail)
   };
-  
+
   // const handleChange = (index:any) => {
   //   setSelectedValue(index);
+
+  let continueBtn = true;
+  continueBtn = selectedValue !== null ? false : true;
   // };
   return (
     <>
@@ -59,7 +62,7 @@ export default function BankListScreen() {
             <Typography sx={CommonStyle.authLayoutTitleText}>
               CHOOSE YOUR BANK ACCOUNT
             </Typography>
-            <Button onClick={()=>navigate('/landingscreen')}>
+            <Button onClick={() => navigate('/landingscreen')}>
               <Typography sx={CommonStyle.authLayoutTitleText}>Back</Typography>
             </Button>
           </Box>
@@ -119,11 +122,12 @@ export default function BankListScreen() {
                         </Box>
                         <Radio
                           size="small"
-                          checked={selectedValue==index}
-                          onChange={(e:any)=>setSelectedValue(e.target.value)}
+                          checked={selectedValue == index}
+                          onChange={(e: any) =>
+                            setSelectedValue(e.target.value)
+                          }
                           value={index}
                           name="radio-buttons"
-                          
                         />
                       </Box>
                     </Box>
@@ -146,7 +150,7 @@ export default function BankListScreen() {
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={buttonClickAction}
-            disabled={false}
+            disabled={continueBtn}
           />
         </Box>
       </Box>

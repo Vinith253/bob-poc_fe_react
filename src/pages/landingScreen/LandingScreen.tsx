@@ -7,11 +7,13 @@ import img2 from '../../assets/images/bob_image.svg';
 import img1 from '../../assets/images/c2c_image.svg';
 import { CommonColor } from '../../commonStyle/CommonColor';
 import { LandingPageStyle } from '../../commonStyle/CommonStyle';
+import { verification } from '../../utils/Constants';
+
 export default function LandingScreen() {
   const navigate = useNavigate();
 
   const submitButtonAction = () => {
-    navigate('/banklist');
+    navigate('/verification', { state: { content: verification.VALIDATE } });
   };
   return (
     <>
