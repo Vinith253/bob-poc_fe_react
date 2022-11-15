@@ -7,5 +7,11 @@ export const CommonColor = {
   White: "#FFFFFF",
   ThemeOrange: "#E16E38",
   ThemeOrangeFaded: "#F5BD9C",
-  descriptionColor: '#58585C'
+  descriptionColor: "#58585C",
+  darkBlue: "#1B2A71",
+  darkGrey: "#33333",
+  lineColorGrey: "#06357A",
+  otpTextBlue: "#2F80ED",
+  otpTextOrange: "#E16E38",
+  otpTextFadedBlue: "rgba(47, 128, 237, 0.5)",
 };

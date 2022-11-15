@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { CommonColor } from "../../../commonStyle/CommonColor";
 import BoBImage from "../../../assets/images/bob_image.svg";
@@ -7,7 +6,7 @@ import { Outlet } from "react-router-dom";
 export default function AuthLayout() {
   return (
     <>
-      <Grid container style={{ height: "100%" }}>
+      <Grid container style={{ height: "100%", backgroundColor: CommonColor.ThemeOrange }}>
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
           <Box
             sx={{
@@ -56,6 +55,8 @@ export default function AuthLayout() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              borderTopLeftRadius : "10px",
+              borderBottomLeftRadius: "10px"
             }}
           >
             <Outlet />
