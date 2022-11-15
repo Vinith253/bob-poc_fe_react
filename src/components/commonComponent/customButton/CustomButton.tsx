@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Button, Typography } from "@mui/material";
-import { CommonColor } from "../../../commonStyle/CommonColor";
+import * as React from 'react';
+import { Button, Typography } from '@mui/material';
+import { CommonColor } from '../../../commonStyle/CommonColor';
 
 type Props = {
   callBackFunction?: any;
@@ -21,12 +21,12 @@ const CustomButton = ({
     <Button
       sx={{
         backgroundColor: buttonColor,
-        width: "100%",
+        width: '100%',
         height: 50,
-        "&:hover": {
+        '&:hover': {
           backgroundColor: buttonColor,
         },
-        "&:disabled": {
+        '&:disabled': {
           backgroundColor: CommonColor.ThemeOrangeFaded,
         },
       }}
@@ -36,11 +36,11 @@ const CustomButton = ({
     >
       <Typography
         sx={{
-          textTransform: "capitalize",
-          fontSize: "1vw",
-          fontWeight: "bold",
+          textTransform: 'capitalize',
+          fontSize: '1vw',
+          fontWeight: 'bold',
           color: textColor,
-          display: "flex",
+          display: 'flex',
         }}
       >
         {title}

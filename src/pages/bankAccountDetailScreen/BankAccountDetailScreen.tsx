@@ -1,12 +1,12 @@
-import React from "react";
-import { Box, Button, Typography } from "@mui/material";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
+import React from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
 
 export default function BankAccountDetailScreen() {
   const submitButtonAction = () => {
-    console.log("btn clicked...");
+    console.log('btn clicked...');
   };
 
   const renderTextComponent = (title: string, value: string) => {
@@ -31,11 +31,17 @@ export default function BankAccountDetailScreen() {
         </Box>
 
         <Box>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
             <Button>
               <Typography
                 sx={{
-                  fontSize: "0.75vw"
+                  fontSize: '0.75vw',
                 }}
               >
                 Choose Different Account
@@ -46,13 +52,13 @@ export default function BankAccountDetailScreen() {
 
           <Box
             sx={{
-              alignItems: "center",
-              justifyContent: "center",
+              alignItems: 'center',
+              justifyContent: 'center',
               bottom: 0,
             }}
           >
             <CustomButton
-              title={"Continue"}
+              title={'Continue'}
               buttonColor={CommonColor.ThemeOrange}
               textColor={CommonColor.White}
               callBackFunction={submitButtonAction}

@@ -1,31 +1,31 @@
-import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
-import CustomTextInput from "../../components/commonComponent/customTextInput/CustomTextInput";
+import React from 'react';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
+import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
 
-import AxisBankImage from "../../assets/images/axis_bank_image.svg";
-import BOBImage from "../../assets/images/axis_bank_image.svg";
-import RBLImage from "../../assets/images/axis_bank_image.svg";
-import YesBankImage from "../../assets/images/axis_bank_image.svg";
+import AxisBankImage from '../../assets/images/axis_bank_image.svg';
+import BOBImage from '../../assets/images/axis_bank_image.svg';
+import RBLImage from '../../assets/images/axis_bank_image.svg';
+import YesBankImage from '../../assets/images/axis_bank_image.svg';
 
 const dummyBankList = [
   {
     id: 1,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: AxisBankImage,
   },
-  { id: 2, acc_no: "123456789012", src: BOBImage },
+  { id: 2, acc_no: '123456789012', src: BOBImage },
   {
     id: 3,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: RBLImage,
   },
   {
     id: 4,
-    acc_no: "123456789012",
+    acc_no: '123456789012',
     src: YesBankImage,
   },
 ];
@@ -34,8 +34,8 @@ export default function BankListScreen() {
   const navigate = useNavigate();
 
   const buttonClickAction = () => {
-    console.log("Ashwini is badddddd uhhhhh");
-    navigate("/banklist");
+    console.log('Ashwini is badddddd uhhhhh');
+    navigate('/banklist');
   };
 
   return (
@@ -44,10 +44,10 @@ export default function BankListScreen() {
         <Box>
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
             <Typography sx={CommonStyle.authLayoutTitleText}>
@@ -73,11 +73,11 @@ export default function BankListScreen() {
                   <Grid item xs={2} sm={4} md={4} key={index}>
                     <Box
                       sx={{
-                        borderWidth: "1px",
-                        borderColor: "success.light",
-                        backgroundColor: "success.dark",
-                        padding: "10px",
-                        width: "100%"
+                        borderWidth: '1px',
+                        borderColor: 'success.light',
+                        backgroundColor: 'success.dark',
+                        padding: '10px',
+                        width: '100%',
                       }}
                     >
                       <Typography>{item.id}</Typography>
@@ -91,13 +91,13 @@ export default function BankListScreen() {
 
         <Box
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "success.light",
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'success.light',
           }}
         >
           <CustomButton
-            title={"Continue"}
+            title={'Continue'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={buttonClickAction}

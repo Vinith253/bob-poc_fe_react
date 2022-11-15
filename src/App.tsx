@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 // import logo from "./logo.svg";
-import "./App.scss";
-import { Route, Routes } from "react-router-dom";
-import AuthLayout from "./components/layout/authLayout/AuthLayout";
-import PrimaryDetailScreen from "./pages/primaryDetailScreen/PrimaryDetailScreen";
+import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+import AuthLayout from './components/layout/authLayout/AuthLayout';
+import PrimaryDetailScreen from './pages/primaryDetailScreen/PrimaryDetailScreen';
 
 function App() {
   return (

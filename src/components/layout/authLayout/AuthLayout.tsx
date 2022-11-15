@@ -1,33 +1,33 @@
-import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
-import { CommonColor } from "../../../commonStyle/CommonColor";
-import BoBImage from "../../../assets/images/bob_image.svg";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Box, Grid, Typography } from '@mui/material';
+import { CommonColor } from '../../../commonStyle/CommonColor';
+import BoBImage from '../../../assets/images/bob_image.svg';
+import { Outlet } from 'react-router-dom';
 
 export default function AuthLayout() {
   return (
     <>
-      <Grid container style={{ height: "100%" }}>
+      <Grid container style={{ height: '100%' }}>
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
           <Box
             sx={{
-              height: "100%",
+              height: '100%',
               backgroundColor: CommonColor.ThemeOrange,
-              padding: "20px",
+              padding: '20px',
             }}
           >
-            <img src={BoBImage} alt="BoBImage" style={{ padding: "30px" }} />
+            <img src={BoBImage} alt="BoBImage" style={{ padding: '30px' }} />
 
             <Box
               sx={{
-                padding: "0 40px",
+                padding: '0 40px',
               }}
             >
               <Typography
                 sx={{
                   color: CommonColor.White,
-                  textAlign: "left",
-                  fontSize: "3vw",
+                  textAlign: 'left',
+                  fontSize: '3vw',
                 }}
               >
                 Get a new card from your existing Credit Card
@@ -37,9 +37,9 @@ export default function AuthLayout() {
                 variant="h6"
                 sx={{
                   color: CommonColor.White,
-                  marginTop: "30px",
-                  textAlign: "left",
-                  fontSize: "1.2vw",
+                  marginTop: '30px',
+                  textAlign: 'left',
+                  fontSize: '1.2vw',
                 }}
               >
                 From Shopping to Lifestyle and Premium to Co-branding, you can
@@ -52,10 +52,10 @@ export default function AuthLayout() {
           <Box
             sx={{
               backgroundColor: CommonColor.BackgroundColor,
-              height: "100vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              height: '100vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <Outlet />
