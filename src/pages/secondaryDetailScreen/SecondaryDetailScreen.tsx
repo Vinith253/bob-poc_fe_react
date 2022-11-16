@@ -67,7 +67,9 @@ export default function SecondaryDetailScreen() {
               handleChange={(text: string) => {
                 setMobileNo(text);
                 setMobileNoErr(
-                  text !== '' ? !RegexValidation.MobilePattern.test(text) : false
+                  text !== ''
+                    ? !RegexValidation.MobilePattern.test(text)
+                    : false
                 );
               }}
               value={mobileNo}
@@ -100,6 +102,7 @@ export default function SecondaryDetailScreen() {
           >
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
+                label={'Date Of Birth'}
                 value={dateValue}
                 onChange={(newValuee: any) => setDateValue(newValuee)}
                 renderInput={(params) => (
@@ -123,9 +126,11 @@ export default function SecondaryDetailScreen() {
             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
-                size="small"
+                size="medium"
                 checked={isConsentChecked}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIsConsentChecked(e.target.checked)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setIsConsentChecked(e.target.checked)
+                }
               />
               <Typography sx={CommonStyle.termsAndCondition}>
                 I hereby consent to get my Credit Report from Credit Bureau
@@ -135,9 +140,11 @@ export default function SecondaryDetailScreen() {
             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
-                size="small"
+                size="medium"
                 checked={isTermsChecked}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIsTermsChecked(e.target.checked)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setIsTermsChecked(e.target.checked)
+                }
               />
               <Typography
                 sx={CommonStyle.termsAndCondition}
@@ -148,10 +155,12 @@ export default function SecondaryDetailScreen() {
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: '12px',
+                    fontSize: '14px',
                     cursor: 'pointer',
+                    fontWeight: '600',
                   }}
                   target={'_blank'}
+                  underline="none"
                 >
                   Terms & Conditions
                 </Link>{' '}
@@ -160,10 +169,12 @@ export default function SecondaryDetailScreen() {
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: '12px',
+                    fontSize: '14px',
                     cursor: 'pointer',
+                    fontWeight: '600',
                   }}
                   target={'_blank'}
+                  underline="none"
                 >
                   Privacy
                 </Link>{' '}
@@ -175,7 +186,7 @@ export default function SecondaryDetailScreen() {
             title={'Get OTP'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
-            disabled={buttonDisabled}
+            disabled={false} //todo revert it - buttonDisabled
             callBackFunction={submitButtonAction}
           />
         </Box>

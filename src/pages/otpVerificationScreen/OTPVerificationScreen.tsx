@@ -1,21 +1,28 @@
-import { Box, Typography, TextField } from "@mui/material";
-import { Stack } from "@mui/system";
-import { useState } from "react";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography, TextField, Button } from '@mui/material';
+import { Stack } from '@mui/system';
+import { useEffect, useState } from 'react';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
+import { useNavigate } from 'react-router-dom';
+import TimerComponent from '../../utils/Timer';
 export default function OtpVerificationScreen() {
   const navigate = useNavigate();
-  const [timer, setTimer] = useState<string>("04:59");
-  
+
+  const [enableResendButton, setEnableResendButton] = useState<boolean>(false);
+  const [mobileNo, setMobileNo] = useState<String>('+91 986543210');
+
+  const updateTimer = (value: number) => {
+    setEnableResendButton(value === 0 ? true : false);
+  };
+
   const submitButtonAction = () => {
-    navigate("/verification");
+    navigate('/verification');
   };
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
-        <Box style={{ backgroundColor: "success.light" }}>
+        <Box style={{ backgroundColor: 'success.light' }}>
           <Stack>
             <Typography sx={CommonStyle.authLayoutTitleText}>
               OTP VERIFICATION
@@ -23,11 +30,11 @@ export default function OtpVerificationScreen() {
           </Stack>
           <Typography
             sx={CommonStyle.authLayoutDescriptionText}
-            style={{ paddingRight: "13px" }}
+            style={{ paddingRight: '13px' }}
           >
-            We have sent OTP to your entered mobile number +91 XXXXXXXX10
+            {`We have sent OTP to your entered mobile number ${mobileNo}`}
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <TextField
               variant="outlined"
               size="small"
@@ -61,34 +68,38 @@ export default function OtpVerificationScreen() {
           </Box>
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginTop: "20px",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: '20px',
             }}
           >
-            <Typography sx={CommonStyle.otpTextColorFaded}>
-              Resend OTP
-            </Typography>
+            <Button disabled={!enableResendButton}>
+              <Typography 
+              sx={!enableResendButton ? CommonStyle.otpTextColorFaded : CommonStyle.otpTextColor}
+              >
+                Resend OTP
+              </Typography>
+            </Button>
             <Typography
               sx={CommonStyle.otpTextColor}
-              onClick={() => navigate("/")}
+              onClick={() => navigate(-1)}
             >
               Change Mobile number
             </Typography>
           </Box>
           <Box>
-            <Typography sx={CommonStyle.otpTimerColor}>{timer}</Typography>
+            <TimerComponent time={299} callBackFunction={updateTimer} />
           </Box>
         </Box>
         <Box
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <CustomButton
-            title={"Verify"}
+            title={'Verify'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             disabled={false}
