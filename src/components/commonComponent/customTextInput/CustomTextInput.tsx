@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, TextField, Typography } from '@mui/material';
+import { CommonColor } from '../../../commonStyle/CommonColor';
 
 const CustomTextInput = (props: any) => {
   return (
@@ -22,8 +23,9 @@ const CustomTextInput = (props: any) => {
 
       <TextField
         fullWidth
-        placeholder={props.placeholder}
-        variant="outlined"
+        label={props.placeholder}
+        variant="filled" //"outlined"
+        placeholder={''}
         size="medium"
         onChange={(e) => props.handleChange(e.target.value)}
         value={props.value}

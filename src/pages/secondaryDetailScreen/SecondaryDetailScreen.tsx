@@ -34,7 +34,7 @@ export default function SecondaryDetailScreen() {
     setButtonDisabled(
       mobileNo.match(RegexValidation.MobilePattern) &&
         panNo.match(RegexValidation.PanPattern) &&
-        dateValue
+        dateValue && isConsentChecked && isTermsChecked
         ? false
         : true
     );
@@ -189,7 +189,7 @@ export default function SecondaryDetailScreen() {
             title={'Get OTP'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
-            disabled={false} //todo revert it - buttonDisabled
+            disabled={buttonDisabled} //todo revert it - buttonDisabled
             callBackFunction={submitButtonAction}
           />
         </Box>

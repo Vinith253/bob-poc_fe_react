@@ -10,34 +10,37 @@ import TimerComponent from '../../utils/Timer';
 import { verification } from '../../utils/Constants';
 export default function OtpVerificationScreen() {
   const navigate = useNavigate();
-  const location= useLocation()
+  const location = useLocation();
   const [enableResendButton, setEnableResendButton] = useState<boolean>(false);
   const [mobileNo, setMobileNo] = useState<String>('+91 986543210');
   const [otp, setOtp] = useState<number>(0);
+  // const
   const [showError, setShowError] = useState<boolean>(false);
   const [otpStatus, setOtpStatus] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
 
   const updateTimer = (value: number) => {
     setEnableResendButton(value === 0 ? true : false);
   };
 
   const submitButtonAction = () => {
-
     const content = location?.state?.content ?? verification.VERIFY;
 
-
-
     navigate('/verification', {
-
       state: { content: content },
-
     });
+  };
 
+  useEffect(() => {
+    updateButtonStatus();
+  }, [otp]);
+
+  const updateButtonStatus = () => {
+    setButtonDisabled(otp && String(otp).length === 6 ? false : true);
   };
 
   const onChangeOtp = (e: any) => {
-    console.log('e', e);
     setOtp(e);
     setShowError(false);
   };
@@ -86,6 +89,7 @@ export default function OtpVerificationScreen() {
               onClick={() => navigate(-1)}
             >
               Change Mobile number
+              {/* todo have to check which clicking this button after landing screen flow */}
             </Typography>
           </Box>
           <Box>
@@ -102,7 +106,7 @@ export default function OtpVerificationScreen() {
             title={'Verify'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
-            disabled={false}
+            disabled={buttonDisabled}
             callBackFunction={submitButtonAction}
           />
         </Box>
