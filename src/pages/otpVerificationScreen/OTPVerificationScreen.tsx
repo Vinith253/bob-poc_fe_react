@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function OtpVerificationScreen() {
   const navigate = useNavigate();
   const [timer, setTimer] = useState<string>("04:59");
+  
   const submitButtonAction = () => {
     navigate("/verification");
   };

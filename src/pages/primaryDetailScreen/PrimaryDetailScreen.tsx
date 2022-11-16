@@ -1,32 +1,39 @@
-import { Box, Grid, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CommonColor } from '../../commonStyle/CommonColor';
 import { CommonStyle } from '../../commonStyle/CommonStyle';
 import CustomButton from '../../components/commonComponent/customButton/CustomButton';
 import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
 
+const obj = {
+  FirstName: '',
+  LastName: '',
+};
+
 export default function PrimaryDetailScreen() {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
+  const [userData, setUserData] = useState(obj);
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+
+  useEffect(() => {
+    updateButtonStatus();
+  }, [userData]);
+
+  const updateButtonStatus = () => {
+    setButtonDisabled(
+      userData?.FirstName !== '' && userData?.LastName !== '' ? false : true
+    );
+  };
 
   const submitButtonAction = () => {
-    navigate('/secondary'); //"/banklist" , "verification"
+    navigate('/secondary');
   };
- 
-  let obj = {
-    FirstName: "",
-    LastName: "",
-  };
-  const [userData, setUserData] = useState(obj);
 
-  const getUserValue = (e: any, value: string) => {
+  const updateUserValue = (e: any, value: string) => {
     setUserData((prev) => ({ ...prev, [value]: e }));
   };
-let continueBtn =true;
 
-  continueBtn =((userData.FirstName !=='' && userData.LastName !== '') ? false : true)
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
@@ -39,8 +46,11 @@ let continueBtn =true;
           </Typography>
 
           <Box>
-            <CustomTextInput placeholder={"First Name"}   handleChange={getUserValue}
-              keyValue={"FirstName"}/>
+            <CustomTextInput
+              placeholder={'First Name'}
+              handleChange={updateUserValue}
+              keyValue={'FirstName'}
+            />
           </Box>
 
           <Box
@@ -48,9 +58,11 @@ let continueBtn =true;
               margin: '20px 0',
             }}
           >
-            <CustomTextInput placeholder={"Last Name"} handleChange={getUserValue} keyValue={"LastName"}
-              
-              />
+            <CustomTextInput
+              placeholder={'Last Name'}
+              handleChange={updateUserValue}
+              keyValue={'LastName'}
+            />
           </Box>
         </Box>
 
@@ -66,7 +78,7 @@ let continueBtn =true;
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={submitButtonAction}
-            disabled={continueBtn}
+            disabled={buttonDisabled}
           />
         </Box>
       </Box>

@@ -1,59 +1,68 @@
-import { Box, Typography, Link } from "@mui/material";
-import { Stack } from "@mui/system";
-import { useState } from "react";
-import { CommonColor } from "../../commonStyle/CommonColor";
-import { CommonStyle } from "../../commonStyle/CommonStyle";
-import CustomButton from "../../components/commonComponent/customButton/CustomButton";
-import CustomTextInput from "../../components/commonComponent/customTextInput/CustomTextInput";
-import Checkbox from "@mui/material/Checkbox";
-import { useNavigate } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { Box, Typography, Link } from '@mui/material';
+import { Stack } from '@mui/system';
+import { useEffect, useState } from 'react';
+import { CommonColor } from '../../commonStyle/CommonColor';
+import { CommonStyle } from '../../commonStyle/CommonStyle';
+import CustomButton from '../../components/commonComponent/customButton/CustomButton';
+import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
+import Checkbox from '@mui/material/Checkbox';
+import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+const obj = {
+  mobileNum: '',
+  panNum: '',
+};
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
   const [dateValue, setDateValue] = useState(null);
-  const [panVerificationChecked, setPanVerificationchecked] = useState(false);
-  const [termsVerifyChecked, setTermsVerifyChecked] = useState(false);
+  const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [setIsTermsChecked, setTermsChecked] = useState(false);
+  const [formData, setFormData] = useState(obj);
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+
+  useEffect(() => {
+    upadateButtonStatus();
+  }, [
+    formData,
+    dateValue,
+    isConsentChecked,
+    setIsTermsChecked,
+  ]);
+
+  const upadateButtonStatus = () => {
+    setButtonDisabled(
+      formData.mobileNum !== '' &&
+        formData.panNum &&
+        dateValue &&
+        isConsentChecked &&
+        setIsTermsChecked
+        ? false
+        : true
+    );
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPanVerificationchecked(event.target.checked);
+    setIsConsentChecked(event.target.checked);
   };
 
   const termVerifyHandleChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setTermsVerifyChecked(event.target.checked);
+    setTermsChecked(event.target.checked);
   };
 
   const submitButtonAction = () => {
     navigate('/otpverification');
   };
 
-  const gobackAction = () => {
-    navigate(-1);
-  };
-  
-  let obj = {
-    mobileNum: "",
-    panNum: "",
-  };
-  const [data, setData] = useState(obj);
-  const getValue = (e: any, value: string) => {
-    setData((prev) => ({ ...prev, [value]: e }));
-  };
-
-  let getOTPbtn = true;
-  getOTPbtn =
-    data.mobileNum !== "" &&
-    data.panNum &&
-    dateValue &&
-    panVerificationChecked &&
-    termsVerifyChecked
-      ? false
-      : true;
+  const updateFormValue = (e: any, value: string) => {
+    setFormData((prev) => ({ ...prev, [value]: e }));
+  };  
 
   return (
     <>
@@ -63,7 +72,10 @@ export default function SecondaryDetailScreen() {
             <Typography sx={CommonStyle.authLayoutTitleText}>
               USER DETAILS
             </Typography>
-            <Typography sx={CommonStyle.backButton} onClick={gobackAction}>
+            <Typography
+              sx={CommonStyle.backButton}
+              onClick={() => navigate(-1)}
+            >
               Back
             </Typography>
           </Stack>
@@ -72,9 +84,9 @@ export default function SecondaryDetailScreen() {
           </Typography>
           <Box>
             <CustomTextInput
-              placeholder={"Mobile Number"}
-              handleChange={getValue}
-              keyValue={"mobileNum"}
+              placeholder={'Mobile Number'}
+              handleChange={updateFormValue}
+              keyValue={'mobileNum'}
             />
           </Box>
           <Box
@@ -83,9 +95,9 @@ export default function SecondaryDetailScreen() {
             }}
           >
             <CustomTextInput
-              placeholder={"PAN Number"}
-              handleChange={getValue}
-              keyValue={"panNum"}
+              placeholder={'PAN Number'}
+              handleChange={updateFormValue}
+              keyValue={'panNum'}
             />
           </Box>
           <Box
@@ -114,12 +126,12 @@ export default function SecondaryDetailScreen() {
             justifyContent: 'center',
           }}
         >
-          <Box sx={{ marginBottom: "15px", marginTop: "20px" }}>
-            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+          <Box sx={{ marginBottom: '15px', marginTop: '20px' }}>
+            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="small"
-                checked={panVerificationChecked}
+                checked={isConsentChecked}
                 onChange={handleChange}
               />
               <Typography sx={CommonStyle.termsAndCondition}>
@@ -127,38 +139,38 @@ export default function SecondaryDetailScreen() {
                 though PAN verification.
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="small"
-                checked={termsVerifyChecked}
+                checked={setIsTermsChecked}
                 onChange={termVerifyHandleChange}
               />
               <Typography
                 sx={CommonStyle.termsAndCondition}
                 style={{ paddingRight: '70px' }}
               >
-                I accept the{" "}
+                I accept the{' '}
                 <Link
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: "12px",
-                    cursor: "pointer",
+                    fontSize: '12px',
+                    cursor: 'pointer',
                   }}
-                  target={"_blank"}
+                  target={'_blank'}
                 >
                   Terms & Conditions
-                </Link>{" "}
-                and{" "}
+                </Link>{' '}
+                and{' '}
                 <Link
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: "12px",
-                    cursor: "pointer",
+                    fontSize: '12px',
+                    cursor: 'pointer',
                   }}
-                  target={"_blank"}
+                  target={'_blank'}
                 >
                   Privacy
                 </Link>{' '}
@@ -170,7 +182,7 @@ export default function SecondaryDetailScreen() {
             title={'Get OTP'}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
-            disabled={getOTPbtn}
+            disabled={buttonDisabled}
             callBackFunction={submitButtonAction}
           />
         </Box>
