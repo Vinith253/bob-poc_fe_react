@@ -14,4 +14,7 @@ export const CommonColor = {
   otpTextBlue: '#2F80ED',
   otpTextOrange: '#E16E38',
   otpTextFadedBlue: 'rgba(47, 128, 237, 0.5)',
+  ThemeOrangeText: '#E27039',
+  ThemeOrangeOpacity: '#FDF2EB',
+  loaderColor: '#DCE2F7',
 };

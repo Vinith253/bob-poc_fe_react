@@ -6,9 +6,9 @@ import { CommonStyle } from '../../commonStyle/CommonStyle';
 import CustomButton from '../../components/commonComponent/customButton/CustomButton';
 import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
 import AxisBankImage from '../../assets/images/axis_bank_image.svg';
-import BOBImage from '../../assets/images/axis_bank_image.svg';
-import RBLImage from '../../assets/images/axis_bank_image.svg';
-import YesBankImage from '../../assets/images/axis_bank_image.svg';
+import BOBImage from '../../assets/images/yes_bank_image.svg';
+import RBLImage from '../../assets/images/rbl_bank_image.svg';
+import YesBankImage from '../../assets/images/rbl_bank_image.svg';
 import Radio from '@mui/material/Radio';
 const dummyBankList = [
   {
@@ -34,15 +34,19 @@ const dummyBankList = [
   },
 ];
 export default function BankListScreen() {
-  const [selectedValue, setSelectedValue] = useState('a');
+  const [selectedValue, setSelectedValue] = useState(null);
   const navigate = useNavigate();
 
   const buttonClickAction = () => {
-    navigate('/bankaccountdetail');
+    navigate('/bankaccountdetail'); //todo otp => loading (fetching acc detail)
   };
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
+
+  // const handleChange = (index:any) => {
+  //   setSelectedValue(index);
+
+  let continueBtn = true;
+  continueBtn = selectedValue !== null ? false : true;
+  // };
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
@@ -58,7 +62,7 @@ export default function BankListScreen() {
             <Typography sx={CommonStyle.authLayoutTitleText}>
               CHOOSE YOUR BANK ACCOUNT
             </Typography>
-            <Button>
+            <Button onClick={() => navigate('/landingscreen')}>
               <Typography sx={CommonStyle.authLayoutTitleText}>Back</Typography>
             </Button>
           </Box>
@@ -118,11 +122,12 @@ export default function BankListScreen() {
                         </Box>
                         <Radio
                           size="small"
-                          checked={selectedValue === ''}
-                          onChange={handleChange}
-                          value="a"
+                          checked={selectedValue == index}
+                          onChange={(e: any) =>
+                            setSelectedValue(e.target.value)
+                          }
+                          value={index}
                           name="radio-buttons"
-                          inputProps={{ 'aria-label': 'A' }}
                         />
                       </Box>
                     </Box>
@@ -145,7 +150,7 @@ export default function BankListScreen() {
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             callBackFunction={buttonClickAction}
-            disabled={false}
+            disabled={continueBtn}
           />
         </Box>
       </Box>

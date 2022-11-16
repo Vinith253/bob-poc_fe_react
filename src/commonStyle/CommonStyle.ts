@@ -30,10 +30,11 @@ export const CommonStyle = {
     cursor: 'pointer',
   },
   termsAndCondition: {
-    fontSize: '12px',
-    fontWeight: '400',
-    color: '#58585C',
-    margin: '3px 0px',
+    fontSize: "14px",
+    fontWeight: "400",
+    color: "#58585C",
+    margin: "3px",
+    
   },
   checkBox: {
     padding: '3px',
