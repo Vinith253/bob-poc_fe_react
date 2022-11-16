@@ -1,7 +1,7 @@
 .container {
   padding: 20px 30px;
   .headerContainer {
-    display: "flex";
+    display: 'flex';
     flex-direction: row;
     // align-items: center;
     // justify-content: space-between;
@@ -40,7 +40,7 @@
   .listContainer {
     padding: 50px 80px 0 80px;
     .existingCardList {
-      display: "flex";
+      display: 'flex';
       flex-direction: row;
       align-items: center;
       .existingSingleCard {
@@ -65,7 +65,7 @@
       }
     }
     .cardListingContainer {
-      display: "flex";
+      display: 'flex';
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
@@ -78,19 +78,19 @@
         .cardListingTitleHeader {
           padding: 10px 0;
           .cardListingIcon {
-            display: "flex";
+            display: 'flex';
             flex-direction: row;
             align-items: center;
-            img{
+            img {
               margin-right: 10px;
             }
-            .cardListingTitle{
+            .cardListingTitle {
               font-weight: 700;
               font-size: 14px;
               line-height: 16px;
             }
           }
-          .cardListingDetail{
+          .cardListingDetail {
             font-weight: 200;
             font-size: 14px;
             line-height: 20px;
@@ -98,12 +98,12 @@
             letter-spacing: 0.2px;
           }
         }
-        .buttonContainer{
-          display: "flex";
+        .buttonContainer {
+          display: 'flex';
           flex-direction: row;
           justify-content: space-between;
           padding-top: 15px;
-          .buttonCard{
+          .buttonCard {
             padding: 12px;
             font-size: 14px;
             font-weight: 700;
