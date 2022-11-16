@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 import { CommonColor } from '../../commonStyle/CommonColor';
 import { CommonStyle } from '../../commonStyle/CommonStyle';
 import CustomButton from '../../components/commonComponent/customButton/CustomButton';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TimerComponent from '../../utils/Timer';
+import { verification } from '../../utils/Constants';
 export default function OtpVerificationScreen() {
   const navigate = useNavigate();
-
+  const location= useLocation()
   const [enableResendButton, setEnableResendButton] = useState<boolean>(false);
   const [mobileNo, setMobileNo] = useState<String>('+91 986543210');
 
@@ -17,7 +18,17 @@ export default function OtpVerificationScreen() {
   };
 
   const submitButtonAction = () => {
-    navigate('/verification');
+
+    const content = location?.state?.content ?? verification.VERIFY;
+
+
+
+    navigate('/verification', {
+
+      state: { content: content },
+
+    });
+
   };
   return (
     <>

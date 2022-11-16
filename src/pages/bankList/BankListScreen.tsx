@@ -10,6 +10,7 @@ import BOBImage from '../../assets/images/yes_bank_image.svg';
 import RBLImage from '../../assets/images/rbl_bank_image.svg';
 import YesBankImage from '../../assets/images/rbl_bank_image.svg';
 import Radio from '@mui/material/Radio';
+import { verification } from '../../utils/Constants';
 const dummyBankList = [
   {
     id: 1,
@@ -38,8 +39,11 @@ export default function BankListScreen() {
   const navigate = useNavigate();
 
   const buttonClickAction = () => {
-    navigate('/bankaccountdetail'); //todo otp => loading (fetching acc detail)
-  };
+    navigate('/otpverification', {
+      state: { content: verification.CHOOSE_YOU_BANK_VALIDATION },
+    }); //todo otp => loading (fetching acc detail)
+
+ };
 
   // const handleChange = (index:any) => {
   //   setSelectedValue(index);

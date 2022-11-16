@@ -12,6 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { RegexValidation } from '../../utils/Regex';
+import { verification } from '../../utils/Constants';
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
@@ -40,7 +41,9 @@ export default function SecondaryDetailScreen() {
   };
 
   const submitButtonAction = () => {
-    navigate('/otpverification');
+    navigate('/otpverification', {
+      state: { content: verification.VERIFY },
+    });
   };
 
   return (

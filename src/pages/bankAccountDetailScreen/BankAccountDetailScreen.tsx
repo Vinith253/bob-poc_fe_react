@@ -6,12 +6,19 @@ import InfoIcon from "../../assets/icons/info_circle_icon.svg";
 import AxisBankImage from "../../assets/images/axis_bank_image.svg";
 import AccountVerifiedIcon from "../../assets/icons/account_verified_icon.svg";
 import { useNavigate } from "react-router-dom";
+import { verification } from "../../utils/Constants";
 
 export default function BankAccountDetailScreen() {
   const navigate = useNavigate();
 
   const submitButtonAction = () => {
-    navigate("/cardlist");
+
+    navigate('/verification', {
+
+      state: { content: verification.FINDING_SUITABLE_CARD },
+
+    });
+
   };
 
   const renderTextComponent = (title: string, value: string) => {
