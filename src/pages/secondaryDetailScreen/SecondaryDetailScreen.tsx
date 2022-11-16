@@ -11,58 +11,37 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-
-const obj = {
-  mobileNum: '',
-  panNum: '',
-};
+import { RegexValidation } from '../../utils/Regex';
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
+
+  const [mobileNo, setMobileNo] = useState<string>('');
+  const [mobileNoErr, setMobileNoErr] = useState<boolean>(false);
+  const [panNo, setPanNo] = useState<string>('');
+  const [panNoErr, setPanNoNoErr] = useState<boolean>(false);
   const [dateValue, setDateValue] = useState(null);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
-  const [setIsTermsChecked, setTermsChecked] = useState(false);
-  const [formData, setFormData] = useState(obj);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
 
   useEffect(() => {
     upadateButtonStatus();
-  }, [
-    formData,
-    dateValue,
-    isConsentChecked,
-    setIsTermsChecked,
-  ]);
+  }, [mobileNo, panNo, dateValue, isConsentChecked, isTermsChecked]);
 
   const upadateButtonStatus = () => {
     setButtonDisabled(
-      formData.mobileNum !== '' &&
-        formData.panNum &&
-        dateValue &&
-        isConsentChecked &&
-        setIsTermsChecked
+      mobileNo.match(RegexValidation.MobilePattern) &&
+        panNo.match(RegexValidation.PanPattern) &&
+        dateValue
         ? false
         : true
     );
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsConsentChecked(event.target.checked);
-  };
-
-  const termVerifyHandleChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setTermsChecked(event.target.checked);
-  };
-
   const submitButtonAction = () => {
     navigate('/otpverification');
   };
-
-  const updateFormValue = (e: any, value: string) => {
-    setFormData((prev) => ({ ...prev, [value]: e }));
-  };  
 
   return (
     <>
@@ -85,8 +64,15 @@ export default function SecondaryDetailScreen() {
           <Box>
             <CustomTextInput
               placeholder={'Mobile Number'}
-              handleChange={updateFormValue}
-              keyValue={'mobileNum'}
+              handleChange={(text: string) => {
+                setMobileNo(text);
+                setMobileNoErr(
+                  text !== '' ? !RegexValidation.MobilePattern.test(text) : false
+                );
+              }}
+              value={mobileNo}
+              error={mobileNoErr}
+              errorMessage={'Please enter valid mobile number'}
             />
           </Box>
           <Box
@@ -96,8 +82,15 @@ export default function SecondaryDetailScreen() {
           >
             <CustomTextInput
               placeholder={'PAN Number'}
-              handleChange={updateFormValue}
-              keyValue={'panNum'}
+              handleChange={(text: string) => {
+                setPanNo(text);
+                setPanNoNoErr(
+                  text !== '' ? !RegexValidation.PanPattern.test(text) : false
+                );
+              }}
+              value={panNo}
+              error={panNoErr}
+              errorMessage={'Please enter valid PAN'}
             />
           </Box>
           <Box
@@ -132,7 +125,7 @@ export default function SecondaryDetailScreen() {
                 sx={CommonStyle.checkBox}
                 size="small"
                 checked={isConsentChecked}
-                onChange={handleChange}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIsConsentChecked(e.target.checked)}
               />
               <Typography sx={CommonStyle.termsAndCondition}>
                 I hereby consent to get my Credit Report from Credit Bureau
@@ -143,8 +136,8 @@ export default function SecondaryDetailScreen() {
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="small"
-                checked={setIsTermsChecked}
-                onChange={termVerifyHandleChange}
+                checked={isTermsChecked}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIsTermsChecked(e.target.checked)}
               />
               <Typography
                 sx={CommonStyle.termsAndCondition}
