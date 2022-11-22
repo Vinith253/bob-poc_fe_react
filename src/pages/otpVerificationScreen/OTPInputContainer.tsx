@@ -21,9 +21,9 @@ export default function App(props: Props) {
         inputClassName={inputClassName}
         inputStyles={{
           color: '#1b2a71',
-          margin: '0px 10px',
+          margin: '0px 5px',
           height: '41px',
-          width: '41px',
+          width: '35px',
           fontWeight: '700',
           fontSize: '14px',
           textAlign: 'center',

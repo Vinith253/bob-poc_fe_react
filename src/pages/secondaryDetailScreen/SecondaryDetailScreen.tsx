@@ -13,6 +13,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { RegexValidation } from '../../utils/Regex';
 import { verification } from '../../utils/Constants';
+import CheckedIcon from '../../assets/icons/check_box_square_icon.svg';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import { Style } from '@mui/icons-material';
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
@@ -34,7 +37,9 @@ export default function SecondaryDetailScreen() {
     setButtonDisabled(
       mobileNo.match(RegexValidation.MobilePattern) &&
         panNo.match(RegexValidation.PanPattern) &&
-        dateValue && isConsentChecked && isTermsChecked
+        dateValue &&
+        isConsentChecked &&
+        isTermsChecked
         ? false
         : true
     );
@@ -107,6 +112,9 @@ export default function SecondaryDetailScreen() {
               <DatePicker
                 label={'Date Of Birth'}
                 value={dateValue}
+                components={{
+                  OpenPickerIcon: CalendarTodayOutlinedIcon,
+                }}
                 onChange={(newValuee: any) => setDateValue(newValuee)}
                 renderInput={(params) => (
                   <TextField
@@ -130,7 +138,11 @@ export default function SecondaryDetailScreen() {
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="medium"
+                checkedIcon={<img src={CheckedIcon} alt={CheckedIcon} />}
                 checked={isConsentChecked}
+                style={{
+                  opacity: isConsentChecked ? '100%' : '30%',
+                }}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setIsConsentChecked(e.target.checked)
                 }
@@ -144,6 +156,10 @@ export default function SecondaryDetailScreen() {
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="medium"
+                checkedIcon={<img src={CheckedIcon} alt={CheckedIcon} />}
+                style={{
+                  opacity: isTermsChecked ? '100%' : '30%',
+                }}
                 checked={isTermsChecked}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setIsTermsChecked(e.target.checked)

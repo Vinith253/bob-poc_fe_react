@@ -17,4 +17,7 @@ export const CommonColor = {
   ThemeOrangeText: '#E27039',
   ThemeOrangeOpacity: '#FDF2EB',
   loaderColor: '#DCE2F7',
+  TitleTextColor: '#333333',
+  LandingPageButtonColor: '#EBEBEB',
+  CheckboxSelectionColor: '#1B2A71'
 };

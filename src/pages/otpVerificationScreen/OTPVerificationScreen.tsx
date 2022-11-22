@@ -1,4 +1,4 @@
-import { Box, Typography, TextField, Button } from '@mui/material';
+import { Box, Typography, TextField, Button, capitalize } from '@mui/material';
 import { Stack } from '@mui/system';
 import { useEffect, useState } from 'react';
 import OTPInputContainer from './OTPInputContainer';
@@ -12,7 +12,7 @@ export default function OtpVerificationScreen() {
   const navigate = useNavigate();
   const location = useLocation();
   const [enableResendButton, setEnableResendButton] = useState<boolean>(false);
-  const [mobileNo, setMobileNo] = useState<String>('+91 986543210');
+  const [mobileNo, setMobileNo] = useState<String>('+91 *******210');
   const [otp, setOtp] = useState<number>(0);
   // const
   const [showError, setShowError] = useState<boolean>(false);
@@ -49,14 +49,13 @@ export default function OtpVerificationScreen() {
     <>
       <Box sx={CommonStyle.authLayoutcard}>
         <Box style={{ backgroundColor: 'success.light' }}>
-          <Stack>
+          {/* <Stack> */}
             <Typography sx={CommonStyle.authLayoutTitleText}>
               OTP VERIFICATION
             </Typography>
-          </Stack>
+          {/* </Stack> */}
           <Typography
-            sx={CommonStyle.authLayoutDescriptionText}
-            style={{ paddingRight: '13px' }}
+            sx={[CommonStyle.authLayoutDescriptionText,{fontSize: '1vw'}]}
           >
             {`We have sent OTP to your entered mobile number ${mobileNo}`}
           </Typography>
@@ -71,10 +70,12 @@ export default function OtpVerificationScreen() {
               flexDirection: 'row',
               justifyContent: 'space-between',
               marginTop: '20px',
+              alignItems: 'center',
             }}
           >
-            <Button disabled={!enableResendButton}>
+            {/* <Button disabled={!enableResendButton}> */}
               <Typography
+              onClick={() => console.log("resend otp clicked")}
                 sx={
                   !enableResendButton
                     ? CommonStyle.otpTextColorFaded
@@ -83,7 +84,7 @@ export default function OtpVerificationScreen() {
               >
                 Resend OTP
               </Typography>
-            </Button>
+            {/* </Button> */}
             <Typography
               sx={CommonStyle.otpTextColor}
               onClick={() => navigate(-1)}

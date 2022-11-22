@@ -4,13 +4,14 @@ export const CommonStyle = {
   authLayoutTitleText: {
     fontSize: '1vw',
     fontWeight: '700',
+    color: CommonColor.TitleTextColor
   },
   authLayoutDescriptionText: {
     marginTop: '10px',
     marginBottom: '25px',
     fontWeight: 400,
     fontSize: '1vw',
-    color: '#58585C',
+    color: CommonColor.descriptionColor,
   },
   authLayoutcard: {
     height: '70%',
@@ -38,6 +39,8 @@ export const CommonStyle = {
   },
   checkBox: {
     padding: '3px',
+    color: CommonColor.CheckboxSelectionColor,
+                  opacity: '30%'
     // margin: "9px 0px",
   },
   otpTextColor: {
@@ -70,13 +73,13 @@ export const LandingPageStyle = {
     fontSize: '12px',
     textTransform: 'capitalize',
     width: '200px',
-    background: '#EBEBEB',
-    color: '#333333',
+    background: CommonColor.LandingPageButtonColor,
+    color: CommonColor.TitleTextColor,
     fontWeight: '700',
     padding: '11px',
     boxShadow: 'none',
     '&:hover': {
-      backgroundColor: '#EBEBEB',
+      backgroundColor: CommonColor.LandingPageButtonColor,
       boxShadow: 'none',
     },
   },
@@ -91,9 +94,9 @@ export const LandingPageStyle = {
     boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.12)',
   },
   landingHeading: {
-    fontSize: '14px',
+    fontSize: '0.75vw',
     fontWeight: '700',
     textAlign: 'center',
-    color: '#333333',
+    color: CommonColor.TitleTextColor,
   },
 };

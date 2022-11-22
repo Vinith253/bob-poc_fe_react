@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, Typography } from '@mui/material';
 import { CommonColor } from '../../../commonStyle/CommonColor';
+import BGImage from '../../../assets/images/button_gradient_bg.svg';
 
 type Props = {
   callBackFunction?: any;
@@ -21,6 +22,7 @@ const CustomButton = ({
     <Button
       sx={{
         backgroundColor: buttonColor,
+        backgroundImage: BGImage,
         width: '100%',
         height: 50,
         '&:hover': {

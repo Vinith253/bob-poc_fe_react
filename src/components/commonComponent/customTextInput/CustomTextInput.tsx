@@ -24,7 +24,7 @@ const CustomTextInput = (props: any) => {
       <TextField
         fullWidth
         label={props.placeholder}
-        variant="filled" //"outlined"
+        variant="outlined" //"filled"
         placeholder={''}
         size="medium"
         onChange={(e) => props.handleChange(e.target.value)}

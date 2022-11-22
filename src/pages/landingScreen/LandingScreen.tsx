@@ -22,9 +22,9 @@ export default function LandingScreen() {
           <Typography
             sx={{
               textTransform: 'uppercase',
-              fontSize: '14px',
-              color: '#333333',
-              fontWeight: '700',
+              fontSize: '0.9vw',
+              color: CommonColor.darkGrey,
+              fontWeight: '600',
             }}
           >
             New to Credit Card or already have a credit card
@@ -35,6 +35,7 @@ export default function LandingScreen() {
               width: '48%',
               marginTop: '5px',
               fontWeight: '400',
+              color: CommonColor.descriptionColor
             }}
           >
             You can apply Bank of Baroda credit card based on your Income or
@@ -50,7 +51,7 @@ export default function LandingScreen() {
         >
           <Box sx={{ borderRight: '1px solid red', marginTop: '10px' }}>
             <Typography sx={LandingPageStyle.landingHeading}>
-              Alredy Have a Credit Card
+              ALREADY HAVE A CREDIT CARD
             </Typography>
             <img src={img1} alt="dd" />
             <Box
@@ -68,7 +69,7 @@ export default function LandingScreen() {
           </Box>
           <Box sx={{ borderRight: '1px solid red', marginTop: '10px' }}>
             <Typography sx={LandingPageStyle.landingHeading}>
-              New To Credit Card
+              NEW TO CREDIT CARD
             </Typography>
             <img src={img1} alt="dd" />
             <Box
@@ -85,7 +86,7 @@ export default function LandingScreen() {
           </Box>
           <Box sx={{ marginTop: '10px' }}>
             <Typography sx={LandingPageStyle.landingHeading}>
-              Get Card With Bank Account
+              GET CARD WITH BANK ACCOUNT
             </Typography>
             <img src={img3} alt="dd" />
             <Box
