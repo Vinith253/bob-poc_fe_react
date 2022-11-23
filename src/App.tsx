@@ -11,6 +11,7 @@ import BankAccountDetailScreen from './pages/bankAccountDetailScreen/BankAccount
 import LandingScreen from './pages/landingScreen/LandingScreen';
 import OtpVerificationScreen from './pages/otpVerificationScreen/OTPVerificationScreen';
 import { CardList } from './pages/cardListScreen/CardListScreen';
+import MainLayout from './components/layout/mainLayout/MainLayout';
 
 function App() {
   return (
@@ -24,27 +25,14 @@ function App() {
           path="/bankaccountdetail"
           element={<BankAccountDetailScreen />}
         />
-        <Route path="/landingscreen" element={<LandingScreen />} />
+        {/* <Route path="/landingscreen" element={<LandingScreen />} /> */}
         <Route path="/otpverification" element={<OtpVerificationScreen />} />
+      </Route>
+      <Route path="/" element={<MainLayout />}>
+        <Route path="landingscreen" element={<LandingScreen />} />
       </Route>
       <Route path="/cardlist" element={<CardList />}></Route>
     </Routes>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
