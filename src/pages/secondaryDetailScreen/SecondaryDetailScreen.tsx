@@ -83,6 +83,7 @@ export default function SecondaryDetailScreen() {
               value={mobileNo}
               error={mobileNoErr}
               errorMessage={'Please enter valid mobile number'}
+              maxLength={10}
             />
           </Box>
           <Box
@@ -101,6 +102,7 @@ export default function SecondaryDetailScreen() {
               value={panNo}
               error={panNoErr}
               errorMessage={'Please enter valid PAN'}
+              maxLength={10}
             />
           </Box>
           <Box
@@ -112,9 +114,12 @@ export default function SecondaryDetailScreen() {
               <DatePicker
                 label={'Date Of Birth'}
                 value={dateValue}
+                inputFormat={'DD-MM-YYYY'}
                 components={{
                   OpenPickerIcon: CalendarTodayOutlinedIcon,
                 }}
+                toolbarFormat={'DD-MM-YYYY'}
+                maxDate={new Date()}
                 onChange={(newValuee: any) => setDateValue(newValuee)}
                 renderInput={(params) => (
                   <TextField

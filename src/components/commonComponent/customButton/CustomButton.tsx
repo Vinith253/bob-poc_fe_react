@@ -32,7 +32,6 @@ const CustomButton = ({
           backgroundColor: CommonColor.ThemeOrangeFaded,
         },
       }}
-      variant="contained"
       onClick={() => callBackFunction()}
       disabled={disabled}
     >

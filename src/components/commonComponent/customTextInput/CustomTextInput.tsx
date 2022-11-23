@@ -29,6 +29,7 @@ const CustomTextInput = (props: any) => {
         size="medium"
         onChange={(e) => props.handleChange(e.target.value)}
         value={props.value}
+        inputProps={{ maxLength: props.maxLength }}
       >
         {props.placeholder}
       </TextField>

@@ -56,6 +56,7 @@ export default function PrimaryDetailScreen() {
               value={firstName}
               error={firstNameErr}
               errorMessage={'Please enter valid name'}
+              CustomTextInput={50}
             />
           </Box>
 
@@ -75,6 +76,7 @@ export default function PrimaryDetailScreen() {
               value={secondName}
               error={secondNameErr}
               errorMessage={'Please enter valid name'}
+              CustomTextInput={50}
             />
           </Box> 
         </Box>

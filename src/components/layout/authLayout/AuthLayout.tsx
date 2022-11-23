@@ -15,7 +15,7 @@ export default function AuthLayout() {
             sx={{
               height: '100%',
               backgroundColor: CommonColor.ThemeOrange,
-              padding: '20px',
+              // padding: '20px',
             }}
           >
             <img src={BoBImage} alt="BoBImage" style={{ padding: '30px' }} />
