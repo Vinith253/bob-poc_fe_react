@@ -1,28 +1,32 @@
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
-import React from 'react';
-import { CommonColor } from '../../../commonStyle/CommonColor';
-import BoBImage from '../../../assets/images/bob_image.svg';
-import { Outlet } from 'react-router-dom';
-import BGImage from '../../../assets/images/background_image.svg';
+import { Grid } from "@mui/material";
+import { Box } from "@mui/system";
+import React from "react";
+import { CommonColor } from "../../../commonStyle/CommonColor";
+import BoBImage from "../../../assets/images/bob_image.svg";
+import { Outlet } from "react-router-dom";
+import BGImage from "../../../assets/images/background_image.svg";
 
 export default function MainLayout() {
   return (
     <>
       <Grid
         container
-        style={{ height: '100%', backgroundColor: CommonColor.ThemeOrange }}
+        style={{ height: "100%", backgroundColor: CommonColor.ThemeOrange }}
       >
         <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
           <Box
             sx={{
-              height: '100%',
+              height: "100%",
               backgroundColor: CommonColor.ThemeOrange,
-              backgroundImage: {BGImage}
+              backgroundImage: { BGImage },
               // padding: '20px',
             }}
           >
-            <img src={BoBImage} alt="BoBImage" style={{ padding: '30px' }} />
+            <img
+              src={BoBImage}
+              alt="BoBImage"
+              style={{ padding: "30px", width: "70%" }}
+            />
           </Box>
         </Grid>
 
@@ -30,12 +34,12 @@ export default function MainLayout() {
           <Box
             sx={{
               backgroundColor: CommonColor.BackgroundColor,
-              height: '100vh',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderTopLeftRadius: '10px',
-              borderBottomLeftRadius: '10px',
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderTopLeftRadius: "10px",
+              borderBottomLeftRadius: "10px",
             }}
           >
             <Outlet />
