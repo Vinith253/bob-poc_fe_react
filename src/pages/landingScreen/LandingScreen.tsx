@@ -50,10 +50,11 @@ export default function LandingScreen() {
             display: "flex",
             flexDirection: "row",
             marginTop: "40px",
-            justifyContent: "space-around",
+            alignItems: 'center',
+            justifyContent: "space-evenly"
           }}
         >
-          <Box sx={{ borderRight: "1px solid red", marginTop: "10px" }}>
+          <Box sx={{ marginTop: "10px" }}>
             <Typography sx={LandingPageStyle.landingHeading}>
               ALREADY HAVE A CREDIT CARD
             </Typography>
@@ -71,7 +72,8 @@ export default function LandingScreen() {
               </Button>
             </Box>
           </Box>
-          <Box sx={{ borderRight: "1px solid red", marginTop: "10px" }}>
+          <Box sx = {{ borderRight: "1px solid #E16E38", height: '100%', width: '2px'}}/>
+          <Box sx={{  marginTop: "10px" }}>
             <Typography sx={LandingPageStyle.landingHeading}>
               NEW TO CREDIT CARD
             </Typography>
@@ -88,6 +90,7 @@ export default function LandingScreen() {
               </Button>
             </Box>
           </Box>
+          <Box sx = {{ borderRight: "1px solid #E16E38", height: '100%', width: '2px'}}/>
           <Box sx={{ marginTop: "10px" }}>
             <Typography sx={LandingPageStyle.landingHeading}>
               GET CARD WITH BANK ACCOUNT

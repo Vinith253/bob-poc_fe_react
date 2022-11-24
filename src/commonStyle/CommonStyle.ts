@@ -88,7 +88,7 @@ export const LandingPageStyle = {
     backgroundColor: CommonColor.White,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     padding: '30px 50px 60px 50px',
     borderRadius: '10px',
     boxShadow: '1px 1px 4px rgba(0, 0, 0, 0.12)',

@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { CommonColor } from '../../../commonStyle/CommonColor';
 import BoBImage from '../../../assets/images/bob_image.svg';
 import { Outlet } from 'react-router-dom';
+import BGImage from '../../../assets/images/background_image.svg';
 
 export default function AuthLayout() {
   return (
@@ -16,6 +17,7 @@ export default function AuthLayout() {
               height: '100%',
               backgroundColor: CommonColor.ThemeOrange,
               // padding: '20px',
+              backgroundImage:`url(${BGImage})`
             }}
           >
             <img src={BoBImage} alt="BoBImage" style={{ padding: '30px' }} />
