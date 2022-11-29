@@ -2,28 +2,29 @@ import {
   Box,
   CircularProgress,
   LinearProgress,
+  Stack,
   Typography,
-} from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { CommonColor } from '../../commonStyle/CommonColor';
-import { CommonStyle } from '../../commonStyle/CommonStyle';
-import CustomButton from '../../components/commonComponent/customButton/CustomButton';
-import { verification } from '../../utils/Constants';
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { CommonColor } from "../../commonStyle/CommonColor";
+import { CommonStyle } from "../../commonStyle/CommonStyle";
+import CustomButton from "../../components/commonComponent/customButton/CustomButton";
+import { verification } from "../../utils/Constants";
 const otpVerification = [
-  'Verifying OTP please wait for a few seconds',
-  'Validating your PAN card details',
-  'Validating your Credit score.',
+  "Verifying OTP please wait for a few seconds",
+  "Validating your PAN card details",
+  "Validating your Credit score.",
 ];
 const chooseBankVerification = [
-  'Verifying OTP please wait for a few seconds',
-  'Fetching your account details',
+  "Verifying OTP please wait for a few seconds",
+  "Fetching your account details",
 ];
 export default function VerificationScreen() {
   const [index, setIndex] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log('location', location);
+  console.log("location", location);
   const content = location?.state?.content ?? verification.VERIFY;
   let displayArray: string[] = [];
   if (content === verification.VERIFY) {
@@ -32,21 +33,17 @@ export default function VerificationScreen() {
   if (content === verification.CHOOSE_YOU_BANK_VALIDATION) {
     displayArray = chooseBankVerification;
   }
-
   const [progress, setProgress] = useState(0);
-
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) =>
         prevProgress >= 100 ? 0 : prevProgress + 10
       );
     }, 550);
-
     return () => {
       clearInterval(timer);
     };
   }, []);
-
   const changeMessage = () => {
     setTimeout(() => {
       setIndex(index + 1);
@@ -57,7 +54,7 @@ export default function VerificationScreen() {
       if (index !== displayArray.length) {
         changeMessage();
       } else {
-        navigate('/LandingScreen');
+        navigate("/LandingScreen");
         // setActive(false);
       }
     }
@@ -65,14 +62,14 @@ export default function VerificationScreen() {
       if (index !== displayArray.length) {
         changeMessage();
       } else {
-        navigate('/bankaccountdetail');
+        navigate("/bankaccountdetail");
         // setActive(false);
       }
     }
   }, [index]);
   const fetchingData = () => {
     setTimeout(() => {
-      navigate('/banklist');
+      navigate("/banklist");
     }, 2000);
   };
   useEffect(() => {
@@ -82,7 +79,7 @@ export default function VerificationScreen() {
   }, []);
   const findingSuitableCard = () => {
     setTimeout(() => {
-      navigate('/cardlist');
+      navigate("/cardlist");
     }, 2000);
   };
   useEffect(() => {
@@ -95,83 +92,109 @@ export default function VerificationScreen() {
       content === verification.VERIFY ||
       (content === verification.CHOOSE_YOU_BANK_VALIDATION && index === 0)
     ) {
-      return 'Verifying  OTP . . .';
+      return "Verifying  OTP . . .";
     }
     if (
       content === verification.VALIDATE ||
       (content === verification.CHOOSE_YOU_BANK_VALIDATION && index === 1)
     ) {
-      return 'Fetching...';
+      return "Fetching...";
     }
     if (content === verification.FINDING_SUITABLE_CARD) {
-      return 'Finding suitable cards . . .';
+      return "Finding suitable cards . . .";
     }
-    return '';
+    return "";
   };
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
         <Box
           sx={{
-            height: '80%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            flexDirection: 'column',
-            paddingBottom: '1vw',
+            height: "80%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            flexDirection: "column",
+            paddingBottom: "1vw",
           }}
         >
           {content === verification.FINDING_SUITABLE_CARD ? (
-            <Box sx={{ width: '100%', color: CommonColor.loaderColor }}>
+            <Box sx={{ width: "100%", color: CommonColor.loaderColor }}>
               <LinearProgress
                 value={0}
                 sx={{
-                  padding: '8px',
-                  borderRadius: '15px',
-                  opacity: '0.5',
+                  padding: "8px",
+                  borderRadius: "15px",
+                  opacity: "0.5",
                   color: CommonColor.loaderColor,
                 }}
               />
             </Box>
           ) : (
             <CircularProgress
-              // variant="determinate"
-              // value={progress}
-              // size="5rem"
-              // sx={{ opacity: '0.5', color: CommonColor.loaderColor }}
+            // variant="determinate"
+            // value={progress}
+            // size="5rem"
+            // sx={{ opacity: '0.5', color: CommonColor.loaderColor }}
             />
           )}
           <Typography
             sx={{
               color: CommonColor.descriptionColor,
-              width: '75%',
-              textAlign: 'center',
-              fontSize: '1vw',
-              marginTop: '3vw',
+              width: "75%",
+              textAlign: "center",
+              fontSize: "1vw",
+              marginTop: "3vw",
             }}
           >
             {(content === verification.VERIFY ||
               content === verification.CHOOSE_YOU_BANK_VALIDATION) &&
               displayArray[index]}
             {content === verification.VALIDATE &&
-              'Fetching account details mapped with your number'}
+              "Fetching account details mapped with your number"}
             {content === verification.FINDING_SUITABLE_CARD &&
-              'Finding cards best suited to your profile . . .'}
+              "Finding cards best suited to your profile . . ."}
           </Typography>
         </Box>
         <Box
           sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
             bottom: 0,
           }}
         >
-          <CustomButton
+          {/* <CustomButton
             title={renderTitle()}
             buttonColor={CommonColor.ThemeOrange}
-            textColor={CommonColor.White}
+            textColor={CommonColor.btnTextOrange}
             disabled={true}
-          />
+          /> */}
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              margin: "10px  20px 0 20px",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                width: "40vw",
+                height: "7vh",
+                backgroundColor: " #FDF2EB",
+                color: "#E27039",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "10px",
+                opacity: "0.8",
+                fontSize: "14px",
+                fontWeight: "700",
+              }}
+            >
+              {renderTitle()}
+            </Box>
+          </Stack>
         </Box>
       </Box>
     </>

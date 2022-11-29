@@ -16,6 +16,7 @@ import { verification } from "../../utils/Constants";
 import CheckedIcon from "../../assets/icons/check_box_square_icon.svg";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import { Style } from "@mui/icons-material";
+import './style.scss';
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
@@ -106,6 +107,7 @@ export default function SecondaryDetailScreen() {
             />
           </Box>
           <Box
+          className="date_picker"
             sx={{
               margin: "20px 0",
             }}
@@ -121,9 +123,11 @@ export default function SecondaryDetailScreen() {
                 toolbarFormat={"DD-MM-YYYY"}
                 maxDate={new Date()}
                 onChange={(newValuee: any) => setDateValue(newValuee)}
+                // readOnly
                 renderInput={(params) => (
                   <TextField
                     {...params}
+                    
                     fullWidth
                     placeholder="Date Of Birth"
                     onKeyDown={(e: any) => {

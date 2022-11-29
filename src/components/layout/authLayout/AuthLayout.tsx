@@ -14,10 +14,10 @@ export default function AuthLayout() {
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
           <Box
             sx={{
-              height: '100%',
-              backgroundColor: CommonColor.ThemeOrange,
-              // padding: '20px',
-              backgroundImage:`url(${BGImage})`
+              backgroundImage: `url(${BGImage})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              height: '100vh'
             }}
           >
             <img src={BoBImage} alt="BoBImage" style={{ padding: '30px' }} />
