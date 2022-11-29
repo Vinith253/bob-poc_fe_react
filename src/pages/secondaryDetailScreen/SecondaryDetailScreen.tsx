@@ -1,28 +1,28 @@
-import { Box, Typography, Link } from '@mui/material';
-import { Stack } from '@mui/system';
-import { useEffect, useState } from 'react';
-import { CommonColor } from '../../commonStyle/CommonColor';
-import { CommonStyle } from '../../commonStyle/CommonStyle';
-import CustomButton from '../../components/commonComponent/customButton/CustomButton';
-import CustomTextInput from '../../components/commonComponent/customTextInput/CustomTextInput';
-import Checkbox from '@mui/material/Checkbox';
-import { useNavigate } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { RegexValidation } from '../../utils/Regex';
-import { verification } from '../../utils/Constants';
-import CheckedIcon from '../../assets/icons/check_box_square_icon.svg';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import { Style } from '@mui/icons-material';
+import { Box, Typography, Link } from "@mui/material";
+import { Stack } from "@mui/system";
+import { useEffect, useState } from "react";
+import { CommonColor } from "../../commonStyle/CommonColor";
+import { CommonStyle } from "../../commonStyle/CommonStyle";
+import CustomButton from "../../components/commonComponent/customButton/CustomButton";
+import CustomTextInput from "../../components/commonComponent/customTextInput/CustomTextInput";
+import Checkbox from "@mui/material/Checkbox";
+import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { RegexValidation } from "../../utils/Regex";
+import { verification } from "../../utils/Constants";
+import CheckedIcon from "../../assets/icons/check_box_square_icon.svg";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import { Style } from "@mui/icons-material";
 
 export default function SecondaryDetailScreen() {
   const navigate = useNavigate();
 
-  const [mobileNo, setMobileNo] = useState<string>('');
+  const [mobileNo, setMobileNo] = useState<string>("");
   const [mobileNoErr, setMobileNoErr] = useState<boolean>(false);
-  const [panNo, setPanNo] = useState<string>('');
+  const [panNo, setPanNo] = useState<string>("");
   const [panNoErr, setPanNoNoErr] = useState<boolean>(false);
   const [dateValue, setDateValue] = useState(null);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -46,7 +46,7 @@ export default function SecondaryDetailScreen() {
   };
 
   const submitButtonAction = () => {
-    navigate('/otpverification', {
+    navigate("/otpverification", {
       state: { content: verification.VERIFY },
     });
   };
@@ -54,8 +54,8 @@ export default function SecondaryDetailScreen() {
   return (
     <>
       <Box sx={CommonStyle.authLayoutcard}>
-        <Box style={{ backgroundColor: 'success.light' }}>
-          <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Box style={{ backgroundColor: "success.light" }}>
+          <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
             <Typography sx={CommonStyle.authLayoutTitleText}>
               USER DETAILS
             </Typography>
@@ -71,54 +71,54 @@ export default function SecondaryDetailScreen() {
           </Typography>
           <Box>
             <CustomTextInput
-              placeholder={'Mobile Number'}
+              placeholder={"Mobile Number"}
               handleChange={(text: string) => {
                 setMobileNo(text);
                 setMobileNoErr(
-                  text !== ''
+                  text !== ""
                     ? !RegexValidation.MobilePattern.test(text)
                     : false
                 );
               }}
               value={mobileNo}
               error={mobileNoErr}
-              errorMessage={'Please enter valid mobile number'}
+              errorMessage={"Please enter valid mobile number"}
               maxLength={10}
             />
           </Box>
           <Box
             sx={{
-              margin: '20px 0',
+              margin: "20px 0",
             }}
           >
             <CustomTextInput
-              placeholder={'PAN Number'}
+              placeholder={"PAN Number"}
               handleChange={(text: string) => {
-                setPanNo(text);
+                setPanNo(text.toUpperCase());
                 setPanNoNoErr(
-                  text !== '' ? !RegexValidation.PanPattern.test(text) : false
+                  text !== "" ? !RegexValidation.PanPattern.test(text) : false
                 );
               }}
               value={panNo}
               error={panNoErr}
-              errorMessage={'Please enter valid PAN'}
+              errorMessage={"Please enter valid PAN"}
               maxLength={10}
             />
           </Box>
           <Box
             sx={{
-              margin: '20px 0',
+              margin: "20px 0",
             }}
           >
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                label={'Date Of Birth'}
+                label={"Date Of Birth"}
                 value={dateValue}
-                inputFormat={'DD-MM-YYYY'}
+                inputFormat={"DD-MM-YYYY"}
                 components={{
                   OpenPickerIcon: CalendarTodayOutlinedIcon,
                 }}
-                toolbarFormat={'DD-MM-YYYY'}
+                toolbarFormat={"DD-MM-YYYY"}
                 maxDate={new Date()}
                 onChange={(newValuee: any) => setDateValue(newValuee)}
                 renderInput={(params) => (
@@ -126,6 +126,9 @@ export default function SecondaryDetailScreen() {
                     {...params}
                     fullWidth
                     placeholder="Date Of Birth"
+                    onKeyDown={(e: any) => {
+                      e.preventDefault();
+                    }}
                   />
                 )}
               />
@@ -134,19 +137,19 @@ export default function SecondaryDetailScreen() {
         </Box>
         <Box
           sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Box sx={{ marginBottom: '15px', marginTop: '20px' }}>
-            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+          <Box sx={{ marginBottom: "15px", marginTop: "20px" }}>
+            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="medium"
                 checkedIcon={<img src={CheckedIcon} alt={CheckedIcon} />}
                 checked={isConsentChecked}
                 style={{
-                  opacity: isConsentChecked ? '100%' : '30%',
+                  opacity: isConsentChecked ? "100%" : "30%",
                 }}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setIsConsentChecked(e.target.checked)
@@ -157,13 +160,13 @@ export default function SecondaryDetailScreen() {
                 though PAN verification.
               </Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
               <Checkbox
                 sx={CommonStyle.checkBox}
                 size="medium"
                 checkedIcon={<img src={CheckedIcon} alt={CheckedIcon} />}
                 style={{
-                  opacity: isTermsChecked ? '100%' : '30%',
+                  opacity: isTermsChecked ? "100%" : "30%",
                 }}
                 checked={isTermsChecked}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -172,42 +175,42 @@ export default function SecondaryDetailScreen() {
               />
               <Typography
                 sx={CommonStyle.termsAndCondition}
-                style={{ paddingRight: '70px' }}
+                style={{ paddingRight: "70px" }}
               >
-                I accept the{' '}
+                I accept the{" "}
                 <Link
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: '600',
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    fontWeight: "600",
                   }}
-                  target={'_blank'}
+                  target={"_blank"}
                   underline="none"
                 >
                   Terms & Conditions
-                </Link>{' '}
-                and{' '}
+                </Link>{" "}
+                and{" "}
                 <Link
                   href="https://www.google.co.in/"
                   style={{
                     color: CommonColor.otpTextBlue,
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    fontWeight: '600',
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    fontWeight: "600",
                   }}
-                  target={'_blank'}
+                  target={"_blank"}
                   underline="none"
                 >
                   Privacy
-                </Link>{' '}
+                </Link>{" "}
                 Notice.
               </Typography>
             </Box>
           </Box>
           <CustomButton
-            title={'Get OTP'}
+            title={"Get OTP"}
             buttonColor={CommonColor.ThemeOrange}
             textColor={CommonColor.White}
             disabled={buttonDisabled} //todo revert it - buttonDisabled
